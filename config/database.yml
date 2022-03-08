@@ -9,14 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: railsskeleton_development
+  database: theultimatesciencefictionawardwinningbooksinternetdatabase_development
 
 test:
   <<: *default
-  database: railsskeleton_test
+  database: theultimatesciencefictionawardwinningbooksinternetdatabase_test
 
 production:
   <<: *default
   host: db
-  database: railsskeleton
+  database: theultimatesciencefictionawardwinningbooksinternetdatabase
   password: root

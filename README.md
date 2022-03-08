@@ -1,4 +1,4 @@
-# RailsSkeleton
+# TheUltimateScienceFictionAwardWinningBooksInternetDatabase
 
 ## Usage
 
@@ -34,10 +34,10 @@ Clone and renaming:
     mkdir MyNewAwesomeApp
     cd MyNewAwesomeApp
     git init -b main
-    git remote add skeleton git@github.com:fguillen/RailsSkeleton.git
+    git remote add skeleton git@github.com:fguillen/TheUltimateScienceFictionAwardWinningBooksInternetDatabase.git
     git pull skeleton main
 
-    rake "railsskeleton:utils:renaming_project[MyNewAwesomeApp]"
+    rake "theultimatesciencefictionawardwinningbooksinternetdatabase:utils:renaming_project[MyNewAwesomeApp]"
     git add .
     git commit -m "Renaming Project"
 
@@ -147,13 +147,13 @@ Check this post for the special envvar `DATABASE_URL`:
 
 You can set all ENVVARS at once in heroku:
 
-    heroku config:push -a railsskeleton -f .env.production -o
+    heroku config:push -a theultimatesciencefictionawardwinningbooksinternetdatabase -f .env.production -o
 
 ## Google Auth
 
 We have to add the callbacks, check here:
 
-- https://asktheteam.railsskeleton.com/t/cant-login-with-google-oauth-on-my-development-environment/425/2
+- https://asktheteam.theultimatesciencefictionawardwinningbooksinternetdatabase.com/t/cant-login-with-google-oauth-on-my-development-environment/425/2
 
 ## Amazon S3
 
@@ -229,7 +229,7 @@ You can take them from the `.env.development` and create the production file:
 
 (Included in the server_setup.sh script)
 
-    cd /var/apps/RailsSkeleton
+    cd /var/apps/TheUltimateScienceFictionAwardWinningBooksInternetDatabase
     docker-compose build
     docker-compose up -d
     docker-compose exec app bundle exec rake db:create db:schema:load
@@ -241,8 +241,8 @@ You can take them from the `.env.development` and create the production file:
 Go to S3 to get the backups
 
     docker-compose exec app bundle exec rake db:create
-    docker exec -i DOCKER_PS mysql -uroot -proot railsskeleton < /tmp/mysql_dump.sql
-    # mv /tmp/public/paperclip/production/* /var/apps/RailsSkeleton/public/paperclip/production/
+    docker exec -i DOCKER_PS mysql -uroot -proot theultimatesciencefictionawardwinningbooksinternetdatabase < /tmp/mysql_dump.sql
+    # mv /tmp/public/paperclip/production/* /var/apps/TheUltimateScienceFictionAwardWinningBooksInternetDatabase/public/paperclip/production/
 
 ### Activate SweetyBacky
 
@@ -250,12 +250,12 @@ Go to S3 to get the backups
     chmod -R 600 /root/secret/
     apt-get install ruby-all-dev build-essential zlib1g-dev mysql-client
     gem install "sweety_backy"
-    crontab -l | { cat; echo "50 22 * * * /bin/bash -l -c '/usr/local/bin/sweety_backy /var/apps/RailsSkeleton/config/sweety_backy.conf >> /tmp/sweety_backy.RailsSkeleton.log 2>&1'"; } | crontab -
+    crontab -l | { cat; echo "50 22 * * * /bin/bash -l -c '/usr/local/bin/sweety_backy /var/apps/TheUltimateScienceFictionAwardWinningBooksInternetDatabase/config/sweety_backy.conf >> /tmp/sweety_backy.TheUltimateScienceFictionAwardWinningBooksInternetDatabase.log 2>&1'"; } | crontab -
 
 
 ### Redeploy
 
-    cd /var/apps/RailsSkeleton
+    cd /var/apps/TheUltimateScienceFictionAwardWinningBooksInternetDatabase
     git pull
 
 Running migrations:

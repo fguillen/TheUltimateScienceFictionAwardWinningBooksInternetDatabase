@@ -1,7 +1,7 @@
 ---
 test:
-  host: railsskeleton.com.test
-  admin_email: it@railsskeleton.com
+  host: theultimatesciencefictionawardwinningbooksinternetdatabase.com.test
+  admin_email: it@theultimatesciencefictionawardwinningbooksinternetdatabase.com
   google_auth:
     client_id: "GOOGLE_CLIENT_ID"
     client_secret: "<%= ENV.fetch('SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
@@ -19,8 +19,8 @@ test:
       - TEST_TOKEN_2
 
 development:
-  host: railsskeleton.com.pizza
-  admin_email: it@railsskeleton.com
+  host: theultimatesciencefictionawardwinningbooksinternetdatabase.com.pizza
+  admin_email: it@theultimatesciencefictionawardwinningbooksinternetdatabase.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
@@ -36,8 +36,8 @@ development:
       - "<%= ENV.fetch('SECRET_APP_TOKEN') %>"
 
 staging:
-  host: staging.railsskeleton.com
-  admin_email: it@railsskeleton.com
+  host: staging.theultimatesciencefictionawardwinningbooksinternetdatabase.com
+  admin_email: it@theultimatesciencefictionawardwinningbooksinternetdatabase.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
@@ -55,8 +55,8 @@ staging:
       - "<%= ENV.fetch('SECRET_APP_TOKEN') %>"
 
 production:
-  host: railsskeleton.com
-  admin_email: it@railsskeleton.com
+  host: theultimatesciencefictionawardwinningbooksinternetdatabase.com
+  admin_email: it@theultimatesciencefictionawardwinningbooksinternetdatabase.com
   google_auth:
     client_id: "193465454284-apigmm255ti8n2rb9ov2obtir6s2cdin.apps.googleusercontent.com"
     client_secret: "<%= ENV.fetch('SECRET_GOOGLE_AUTH_CLIENT_SECRET') %>"
