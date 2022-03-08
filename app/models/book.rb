@@ -1,5 +1,7 @@
 class Book < ApplicationRecord
   self.primary_key = :slug
+  log_book
+  strip_attributes
 
   belongs_to :author
 
@@ -8,6 +10,8 @@ class Book < ApplicationRecord
   validates :title, presence: true, uniqueness: {scope: :author}
   validates :slug, presence: true, uniqueness: true
   validates :author, presence: true
+
+  scope :order_by_recent, -> { order("created_at desc") }
 
   private
 

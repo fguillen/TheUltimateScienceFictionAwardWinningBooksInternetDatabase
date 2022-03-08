@@ -1,0 +1,11 @@
+<% title t("views.books.index.title") %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active"><%= t "layouts.breadcrumbs.books" %></li>
+  </ol>
+</nav>
+
+<%= render partial: "list", locals: { books: @books } %>
+
+<%= paginate @books %>

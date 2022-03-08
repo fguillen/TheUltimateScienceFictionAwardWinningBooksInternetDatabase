@@ -1,9 +1,9 @@
 class CreateLogBookEventsUuidsSupport < ActiveRecord::Migration[4.2]
   def self.up
     create_table :log_book_events do |t|
-      t.string :historian_id, limit: 36
+      t.string :historian_id
       t.string :historian_type
-      t.string :historizable_id, limit: 36
+      t.string :historizable_id
       t.string :historizable_type
       t.text :differences, :limit => 16777215 # mediumtext
 

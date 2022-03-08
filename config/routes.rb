@@ -44,9 +44,10 @@ Rails.application.routes.draw do
   end
 
   namespace :guest do
-    root to: redirect("guest/articles")
+    root to: redirect("guest/books")
     resources :pages, only: [:show]
     resources :articles, only: [:show, :index]
+    resources :books, only: [:show, :index]
   end
 
   get '/auth/:provider/callback' => 'admin/admin_authorizations#create', constraints: ->(request) { request.env['omniauth.params']['from'] == 'admin' }

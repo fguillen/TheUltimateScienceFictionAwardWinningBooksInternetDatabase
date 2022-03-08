@@ -1,0 +1,32 @@
+<% title t("views.books.show.title", :book_uuid => @book.uuid) %>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><%= link_to t("layouts.breadcrumbs.books"), :guest_books %></li>
+    <li class="breadcrumb-item active"><%= @book.title %></li>
+  </ol>
+</nav>
+
+<div class="row">
+  <div class="col mb-2">
+    <div class="card">
+      <% if @book.pic.attached? %>
+        <%= image_tag @book.pic, style: "width: 100%" %>
+      <% end %>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-8">
+            <h5 class="card-title"><%= @book.title %></h5>
+          </div>
+          <div class="col text-end">
+            <%= render_labels(@book.tag_list, :tags) %>
+          </div>
+        </div>
+        <div class="card-text">
+          <%= markdown(@book.body) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

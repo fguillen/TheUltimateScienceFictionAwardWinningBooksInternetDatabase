@@ -138,9 +138,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_192020) do
   end
 
   create_table "log_book_events", id: :integer, charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
-    t.string "historian_id", limit: 36
+    t.string "historian_id"
     t.string "historian_type"
-    t.string "historizable_id", limit: 36
+    t.string "historizable_id"
     t.string "historizable_type"
     t.text "differences", size: :medium
     t.datetime "created_at", precision: nil, null: false
