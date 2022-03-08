@@ -70,6 +70,52 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_192020) do
     t.index ["uuid"], name: "index_articles_on_uuid", unique: true
   end
 
+  create_table "authors", id: false, charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "slug", null: false
+    t.index ["name"], name: "index_authors_on_name", unique: true
+    t.index ["slug"], name: "index_authors_on_slug", unique: true
+  end
+
+  create_table "award_winners", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "award_id", null: false
+    t.integer "year", null: false
+    t.string "position", null: false
+    t.string "book_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["award_id"], name: "fk_rails_72d279301e"
+    t.index ["book_id"], name: "fk_rails_5902bf681f"
+  end
+
+  create_table "awards", id: false, charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "category", null: false
+    t.string "slug", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name", "category"], name: "index_awards_on_name_and_category", unique: true
+    t.index ["slug"], name: "index_awards_on_slug", unique: true
+  end
+
+  create_table "books", id: false, charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "slug", null: false
+    t.string "author_id", null: false
+    t.string "country"
+    t.string "language"
+    t.date "publication_date"
+    t.integer "pages"
+    t.string "isbn"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "cover_url"
+    t.index ["author_id"], name: "fk_rails_53d51ce16a"
+    t.index ["slug"], name: "index_books_on_slug", unique: true
+    t.index ["title", "author_id"], name: "index_books_on_title_and_author_id", unique: true
+    t.index ["title"], name: "index_books_on_title"
+  end
+
   create_table "front_authorizations", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -141,5 +187,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_07_192020) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "front_users", primary_key: "uuid"
+  add_foreign_key "award_winners", "awards", primary_key: "slug"
+  add_foreign_key "award_winners", "books", primary_key: "slug"
+  add_foreign_key "books", "authors", primary_key: "slug"
   add_foreign_key "taggings", "tags"
 end

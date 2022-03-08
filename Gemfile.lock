@@ -6,6 +6,11 @@ GIT
       rake
       test-unit
 
+PATH
+  remote: /Users/fernando.guillen/Development/wac
+  specs:
+    wac (0.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -494,6 +499,7 @@ DEPENDENCIES
   uuid
   virtus
   virtus-relations
+  wac!
   web-console
   webdrivers
 

@@ -9,14 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: theultimatesciencefictionawardwinningbooksinternetdatabase_development
+  database: tusfawbid_development
 
 test:
   <<: *default
-  database: theultimatesciencefictionawardwinningbooksinternetdatabase_test
+  database: tusfawbid_test
 
 production:
   <<: *default
   host: db
-  database: theultimatesciencefictionawardwinningbooksinternetdatabase
+  database: tusfawbid
   password: root

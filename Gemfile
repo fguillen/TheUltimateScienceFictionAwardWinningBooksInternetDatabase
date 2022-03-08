@@ -42,6 +42,7 @@ gem "uglifier"
 gem "uuid"
 gem "virtus-relations"
 gem "virtus"
+gem "wac", path: "/Users/fernando.guillen/Development/wac"
 
 
 group :test do
