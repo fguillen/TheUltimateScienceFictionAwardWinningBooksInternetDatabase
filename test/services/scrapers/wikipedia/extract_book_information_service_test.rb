@@ -5,9 +5,9 @@ class Scrapers::Wikipedia::ExtractBookInformationServiceTest < ActiveSupport::Te
     url = "https://en.wikipedia.org/wiki/The_Moon_Goddess_and_the_Son"
     book = FactoryBot.create(:book)
 
-    # VCR.use_cassette("ExtractBookInformationService_test_perform") do
+    VCR.use_cassette("book_The_Moon_Goddess_and_the_Son") do
       Scrapers::Wikipedia::ExtractBookInformationService.perform(url, book)
-    # end
+    end
 
     puts book.inspect
   end

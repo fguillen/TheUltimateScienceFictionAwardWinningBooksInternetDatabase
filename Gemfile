@@ -52,6 +52,8 @@ group :test do
   gem "mocha"
   gem "rails-controller-testing"
   gem "simplecov", require: false
+  gem "vcr", github: "vcr/vcr"
+  gem "webmock"
 end
 
 group :development, :test do

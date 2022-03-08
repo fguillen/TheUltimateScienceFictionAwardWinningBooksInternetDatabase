@@ -5,8 +5,11 @@ class Scrapers::Wikipedia::AwardsBaseService < ApplicationService
 
     award = create_award(award_name, category_name)
     books = []
+    rows_count = table_rows.count
 
-    table_rows.each do |row|
+    table_rows.each_with_index do |row, index|
+      puts "XXX: Parsing table row [#{index + 1}/#{rows_count}]"
+
       author = create_author(row)
       book = create_book(row, author)
       book_url = get_book_url(row)
@@ -24,7 +27,7 @@ class Scrapers::Wikipedia::AwardsBaseService < ApplicationService
       end
 
       if book && book_url
-        Scrapers::Wikipedia::p.perform(book_url, book)
+        Scrapers::Wikipedia::ExtractBookInformationService.perform(book_url, book)
       end
 
       if book
