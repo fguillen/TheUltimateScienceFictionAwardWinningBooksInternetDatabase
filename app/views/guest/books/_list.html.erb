@@ -1,3 +1,7 @@
-<% books.each do |book| %>
-  <%= render partial: "card", locals: { book: book } %>
-<% end %>
+<div class="row row-cols-2 row-cols-lg-5">
+  <% books.each do |book| %>
+    <div class="col">
+      <%= render partial: "card", locals: { book: book } %>
+    </div>
+  <% end %>
+</div>

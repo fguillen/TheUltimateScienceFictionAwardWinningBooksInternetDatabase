@@ -2,7 +2,7 @@ class Guest::BooksController < Guest::BaseController
   before_action :load_book, only: [:show]
 
   def index
-    @articles = Book.order_by_recent.page(params[:page]).per(10)
+    @books = Book.order_by_recent.page(params[:page]).per(100)
   end
 
   def show; end

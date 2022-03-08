@@ -1,16 +1,17 @@
-<div class="col mb-2">
-  <div class="card">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-8">
-          <h5 class="card-title"><%= book.title %></h5>
-        </div>
-        <div class="col text-end">
-          <%= render_labels(book.tag_list, :tags) %>
-        </div>
+<div class="card">
+  <% if book.cover_url.present? %>
+    <img src="<%= book.cover_url %>" class="card-img-top" alt="<%= book.title %>">
+  <% end %>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-8">
+        <h5 class="card-title"><%= book.title %></h5>
       </div>
-      <p class="card-text"><%= truncate(book.body, length: 300) %></p>
-      <%= link_to "Read book", [:guest, book], class: "btn btn-primary" %>
+      <div class="col text-end">
+        <%#= render_labels(book.tag_list, :tags) %>
+      </div>
     </div>
+    <p class="card-text"><%#= truncate(book.body, length: 300) %></p>
+    <%= link_to "Read book", [:guest, book], class: "btn btn-primary" %>
   </div>
 </div>
